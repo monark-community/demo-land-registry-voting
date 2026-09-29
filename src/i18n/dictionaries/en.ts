@@ -122,7 +122,7 @@ const en = {
       planning: "Belrive planning department",
       tanneries: "Tanneries residents' association",
       herons: "Pointe-aux-Hérons residents' committee",
-      you: "You, for the Tanneries residents' association",
+      you: "you, for the Tanneries residents' association",
     },
     rules: {
       lot: "One lot, one vote",
@@ -595,6 +595,7 @@ const en = {
       filing: "Filing with the land registry…",
       filed: "Filed · {ref}",
       filingFailed: "Certified on-chain. The registry filing didn't go through and will retry.",
+      pending: "Waiting for the network…",
       rejected: "You declined the signature. Nothing changed.",
       reverted: "The network rejected the transaction. Nothing changed.",
       open: "Open",

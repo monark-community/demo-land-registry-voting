@@ -124,7 +124,7 @@ const fr: Dictionary = {
       planning: "Service de l'urbanisme de Belrive",
       tanneries: "Association des résidents des Tanneries",
       herons: "Comité des résidents de Pointe-aux-Hérons",
-      you: "Vous, pour l'Association des résidents des Tanneries",
+      you: "vous, pour l'Association des résidents des Tanneries",
     },
     rules: {
       lot: "Un terrain, un vote",
@@ -597,6 +597,7 @@ const fr: Dictionary = {
       filing: "Dépôt au registre foncier…",
       filed: "Consigné · {ref}",
       filingFailed: "Certifié sur la chaîne. Le dépôt au registre n'a pas abouti et sera relancé.",
+      pending: "En attente du réseau…",
       rejected: "Vous avez refusé la signature. Rien n'a changé.",
       reverted: "Le réseau a rejeté la transaction. Rien n'a changé.",
       open: "Voir",
