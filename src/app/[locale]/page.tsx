@@ -1,4 +1,4 @@
-import { ArrowRightIcon, PlusIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -44,8 +44,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <section aria-labelledby="hero-title" className="survey-grid border-b border-foreground/15">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pt-10 pb-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pt-16 lg:pb-20">
           <div>
-            <p className="annot inline-flex border-b-2 border-primary pb-1 text-primary">{h.eyebrow}</p>
-            <h1 id="hero-title" className="mt-5 text-[2.6rem] leading-[1.04] font-extrabold tracking-display sm:text-6xl">
+            <h1 id="hero-title" className="text-[2.6rem] leading-[1.04] font-extrabold tracking-display sm:text-6xl">
               {h.title}
             </h1>
             <p className="mt-5 max-w-[34rem] text-lg text-muted-foreground sm:text-xl">{h.lead}</p>
@@ -60,7 +59,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
                 <Link href={href(locale, "/how-it-works")}>{h.secondary}</Link>
               </Button>
             </div>
-            <p className="annot mt-6 text-[0.65rem] text-muted-foreground">{dict.common.demoBadge}</p>
           </div>
           <HeroPlan d={h} labels={dict.plan.labels} />
         </div>
@@ -156,33 +154,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
               {h.street.title}
             </SectionTitle>
             <p className="mt-5 text-lg text-muted-foreground">{h.street.body}</p>
-            <dl className="mt-8 grid gap-0 border-t border-foreground/20">
-              {h.street.points.map((p) => (
-                <div key={p.k} className="grid grid-cols-[7rem_1fr] gap-3 border-b border-foreground/20 py-3">
-                  <dt className="annot pt-0.5 text-[0.68rem]">{p.k}</dt>
-                  <dd className="text-muted-foreground">{p.v}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section aria-labelledby="faq-title" className="mx-auto w-full max-w-4xl px-4 py-16 sm:px-6 lg:py-24">
-        <SectionTitle n="05" id="faq-title">
-          {h.faq.title}
-        </SectionTitle>
-        <div className="mt-10 border-t border-foreground/25">
-          {h.faq.items.map((f) => (
-            <details key={f.q} className="group border-b border-foreground/25">
-              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-lg font-semibold marker:hidden [&::-webkit-details-marker]:hidden">
-                {f.q}
-                <PlusIcon className="size-5 shrink-0 transition-transform group-open:rotate-45" aria-hidden="true" />
-              </summary>
-              <p className="max-w-[62ch] pb-5 text-muted-foreground">{f.a}</p>
-            </details>
-          ))}
         </div>
       </section>
 

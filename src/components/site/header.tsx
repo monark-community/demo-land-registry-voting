@@ -24,10 +24,15 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <div className="hidden items-center gap-2 md:flex">
+            <span title={c.demoBadge} className="annot inline-flex h-7 items-center gap-1.5 rounded-sm border border-dashed border-foreground/40 px-2 text-[0.62rem] text-muted-foreground">
+              <span className="size-1.5 rounded-full bg-vote-against" aria-hidden="true" />
+              <span aria-hidden="true">{c.demoChip}</span>
+              <span className="sr-only">{c.demoBadge}</span>
+            </span>
             <LocaleSwitch locale={locale} label={c.language} names={c.languageNames} />
             <ThemeToggle label={c.theme.toggle} />
           </div>
-          <HeaderAction demoHref={href(locale, "/app")} demoLabel={c.openDemo} badge={c.demoBadge} />
+          <HeaderAction demoHref={href(locale, "/app")} demoLabel={c.openDemo} />
           <MobileMenu
             items={items}
             locale={locale}

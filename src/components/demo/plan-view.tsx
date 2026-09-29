@@ -119,9 +119,9 @@ export function PlanView() {
   }
 
   return (
-    <div className="mx-auto grid w-full max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:py-6">
+    <div className="mx-auto grid w-full max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:grid-rows-[auto_1fr] lg:py-6">
       <h1 className="sr-only">{app.nav.plan}</h1>
-      <div className="flex flex-col gap-3 lg:sticky lg:top-[8.5rem] lg:self-start">
+      <div className="order-2 flex flex-col gap-3 lg:sticky lg:top-[8.5rem] lg:order-none lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start">
         <InteractivePlan
           box={box}
           area={highlighted?.lots}
@@ -137,8 +137,10 @@ export function PlanView() {
         />
         <LotFinder onPick={showLot} />
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="order-1 lg:order-none lg:col-start-2 lg:row-start-1">
         <LandStrip onShow={showLot} />
+      </div>
+      <div className="order-3 flex flex-col gap-5 lg:order-none lg:col-start-2 lg:row-start-2">
         <section aria-labelledby="proposals-title">
           <h2 id="proposals-title" className="text-xl font-extrabold tracking-display">
             {app.proposals.title}

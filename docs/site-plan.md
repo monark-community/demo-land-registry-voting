@@ -62,8 +62,8 @@ Supporting benefits, as outcomes:
 
 - **Headline** (9 words): *Every lot gets a say in what's built next.*
   FR: *Chaque terrain a voix au chapitre sur ce qui s'y bâtit.*
-- **Subheadline:** *LandVote lets owners and tenants vote on zoning, roads and green space from a map of their own lots. Every vote is signed, counted in the open and filed with the municipal registry.*
-  FR: *LandVote permet aux propriétaires et aux locataires de voter sur le zonage, la voirie et les espaces verts à partir d'un plan de leurs propres terrains. Chaque vote est signé, compté au grand jour et versé au registre municipal.*
+- **Subheadline** (≤ 25 words): *Owners and tenants vote on zoning, roads and parks from a map of their lots. Every ballot signed, counted openly, filed in the registry.*
+  FR: *Propriétaires et locataires votent sur le zonage, la voirie et les parcs depuis le plan de leurs terrains. Bulletins signés, comptés au grand jour, versés au registre.*
 - **Primary CTA:** "Open the Belrive demo" / « Ouvrir la démo de Belrive » → `/{locale}/app`.
 - **Secondary CTA:** "How a vote works" / « Le déroulement d'un vote » → `/{locale}/how-it-works`.
 - **Visual:** the **live consent plan**, built in code (SVG, CSS-only animation, rendered on the server): a cropped cadastral plan of Les Tanneries with the proposal's affected area outlined. Lots fill in one by one with the voter's choice (green wash = for, rust hatching = against, dots = abstain), an ink seal lands on the visitor's own lot, and a tally strip beneath settles with its quorum tick passing the line ("Quorum reached · 41 %"). Product over photography because the plan *is* the product: the place, the rule and the count on one sheet. It loops calmly and stops under `prefers-reduced-motion`.
@@ -74,18 +74,18 @@ All routes live under `/{locale}` (`en`, `fr`). `/` and any locale-less path red
 
 | Route | Purpose | Sections, in order |
 |-|-|-|
-| `/{locale}` | Home: explain the idea in 30 seconds, send people into the demo. | Hero with live consent plan · "The hearing problem" (photo of an auditorium + three facts) · How a vote works (4 steps on one ruled strip) · What LandVote gives each side (Residents / Clerks & councils / Proposers) · From the plan to the street (aerial photo with lot outlines drawn over it) · FAQ · Closing call to action |
+| `/{locale}` | Home: explain the idea in 30 seconds, send people into the demo. | Hero with live consent plan · "The hearing problem" (photo of an auditorium + three facts) · How a vote works (4 steps on one ruled strip) · What LandVote gives each side (Residents / Clerks & councils / Proposers) · From the plan to the street (aerial photo with lot outlines drawn over it) · Closing call to action (5 sections after the hero, per the restraint rules) |
 | `/{locale}/app` | The demo: the Belrive plan. | App bar (role switch, demo badge, wallet) · Connect gate or "Your land" strip · Plan with district labels, your lots and proposal areas · Proposals panel (Open / In review / Closed tabs) · Parcel sheet (opens on any lot: record and history) · Demo controls |
 | `/{locale}/app/proposals/[id]` | One proposal: what, where, the rule, the live tally and your ballot. | Header (number, category, status, deadline) · Affected-area plan · Tally with quorum tick · Your ballot (eligible lots, choice, sign) or why you cannot vote · Rule card · Timeline (lifecycle with hashes) · Votes cast (public list) |
 | `/{locale}/app/new` | Draft a proposal (Proposer role). | Title, category, summary · Affected area (pick a district or tap lots on the plan) · Who votes (owners / owners and tenants) · Rule and quorum · Voting period · Live preview (lots, eligible holders, quorum in lots) · Submit for review |
 | `/{locale}/app/review` | Clerk's desk (Validator role). | To review (approve and open / return with reason) · Ready to certify (certify, then registry sync) · Certified recently |
 | `/{locale}/app/record` | Public record: the audit trail. | Filters (all / proposals / votes / certifications) · Search by lot number · Event list with hashes and registry references |
-| `/{locale}/how-it-works` | The mechanics for careful buyers, clerks and students. Justified: the documentation frames LandVote as a governance + registry + mapping build; eligibility, weights, quorum and registry sync need a page of their own that the demo can link to. | Intro · Lifecycle diagram · Who can vote (attestations, owners, tenants) · The two rules with a worked example · Quorum and results · Roles · The public record and registry sync · Under the hood (contract and data-layer shape) · CTA |
+| `/{locale}/how-it-works` | The mechanics for careful buyers, clerks and students. Justified: the documentation frames LandVote as a governance + registry + mapping build; eligibility, weights, quorum and registry sync need a page of their own that the demo can link to ("How is this counted?"). | Intro · Lifecycle diagram · Who can vote · The two rules (plan illustrations) with a worked example · Quorum and results · Roles · The public record and registry sync · Under the hood (contract sketch) · FAQ (5 questions) · CTA |
 | `/{locale}/credits` | Photo, font and icon credits (asset rules). | Photos · Type · Icons · Built with Monark |
 | `/{locale}/pricing` | **Internal strategy review only.** Never linked, excluded from sitemap, `noindex, nofollow`. | Three plans · What is included everywhere · One-time registry connector · Reasoning |
 | 404 | Friendly not-found: "This lot isn't on the plan." | Message · links home and to the demo |
 
-**Header:** wordmark (left) · links: *Demo*, *How it works* · EN/FR switch · theme toggle · primary action "Open the demo" (marketing) or wallet (app). Mobile: wordmark + menu button opening a sheet with the same items.
+**Header:** wordmark (left) · links: *Demo*, *How it works* · "Demo" chip · EN/FR switch · theme toggle · primary action "Open the demo" (marketing pages only; in the app the wallet sits in the app bar). Mobile: wordmark + menu button opening a sheet with the same items.
 **Footer:** one-line description · links (Demo, How it works, Public record, Credits, project documentation on monark.io, GitHub) · "Demo · simulated data" · "Built with Monark" credit (mono mark, 12–13px, `muted-foreground`, links to monark.io) · © line. Never `/pricing`.
 
 ## 5. Feature highlights
@@ -113,6 +113,8 @@ All transactions go through the simulated wallet prompt (sign or reject) → pen
 Tone: a well-written municipal notice with a human voice. Plain words, concrete places and numbers, calm confidence, no crypto hype. Technical terms (on-chain, wallet/portefeuille, hash) appear where they help and are explained. French is written natively for Québec readers ("lot", "terrain", "greffe", "avis public").
 
 ### Home
+
+The first drafts below were cut to the restraint budgets before shipping (no hero eyebrow, one short line per section, cards ≤ 20 words, FAQ moved to how-it-works with 5 questions). The shipped copy is in the dictionaries.
 
 | Section | EN | FR |
 |-|-|-|
@@ -142,7 +144,7 @@ Tone: a well-written municipal notice with a human voice. Plain words, concrete 
 | FAQ 4 | *Are votes public?* Yes: who voted from which lot, and how, is on the public record, as with a signed petition or register. | *Les votes sont-ils publics ?* Oui : quel terrain a voté, et comment, figure au registre public, comme pour une pétition ou un registre signé. |
 | FAQ 5 | *Is the result legally binding?* That is up to your council's by-laws. LandVote gives you a clean, verifiable count and files it; the council decides what weight it carries. | *Le résultat a-t-il force de loi ?* Cela dépend des règlements de votre conseil. LandVote fournit un décompte net et vérifiable et le consigne ; le conseil décide de sa portée. |
 | FAQ 6 | *Is this demo real?* It is a simulation: a made-up town, a simulated wallet and network. Nothing you do leaves your browser. | *Cette démo est-elle réelle ?* C'est une simulation : une ville fictive, un portefeuille et un réseau simulés. Rien de ce que vous faites ne quitte votre navigateur. |
-| Closing | Walk through a vote in Belrive. Three lots, five proposals, one town clerk. It takes four minutes. | Faites voter Belrive. Trois terrains, cinq propositions, un greffe. Quatre minutes suffisent. |
+| Closing | Walk through a vote in Belrive. Three lots, six proposals, one town clerk. It takes four minutes. | Faites voter Belrive. Trois terrains, six propositions, un greffe. Quatre minutes suffisent. |
 
 ### App (key strings)
 
@@ -239,6 +241,16 @@ LandVote sells to municipalities and residents' associations; residents never pa
 Included everywhere: network fees for residents' votes are sponsored (costed into the plan), open-source contracts, public record. One-time **registry connector** for Town and City: from CA$ 8,000 (mapping the town's cadastre and attestation flow). Rationale: comparable civic-participation platforms cost €10k–40k a year; LandVote undercuts them for small towns and adds land eligibility they lack.
 
 `/pricing` exists for internal review only: never linked, excluded from `sitemap.xml`, `robots: { index: false, follow: false }`.
+
+## Decisions made while building
+
+- **Demo roles are a visible switch** (Resident / Proposer / Clerk) in the app bar, because one visitor has to walk every role's flow; pages that need another role show a one-click "Act as…" gate.
+- **Inline transaction feedback, not toasts.** Pending, confirmed and failed states appear inside the ballot, form or desk card they belong to (with the registry's `tx-status`). The only toast is "Demo reset", shown bottom-left after the controls sheet closes, so it never covers what it reports on.
+- **The app bar is sticky on desktop only**; on phones it scrolls away to leave room for the plan.
+- **Lots are keyboard-reachable** where it matters (the proposal's area and your own lots) plus a "Find a lot" search everywhere, instead of 66 tab stops on the full plan.
+- **Votes whose deadline passes while the tab is closed** are closed on load with their computed outcome; the clerk's "Close voting now" is a labelled demo shortcut.
+- **Registry reference numbers** for new filings continue from `BLR-2026-0412`.
+- **Restraint pass** (owner feedback): home cut to 5 sections after the hero (FAQ moved to how-it-works, 6 → 5 questions), hero eyebrow and hero demo note removed, section bodies cut to one line, how-it-works paragraphs cut to one line each, intros removed above the draft form and the clerk's desk, the ballots-table note removed, the rule card's majority sentence replaced by a "How is this counted?" link. The header carries one "Demo" chip; the testnet line appears only in the wallet prompt.
 
 ## 11. Out of scope
 

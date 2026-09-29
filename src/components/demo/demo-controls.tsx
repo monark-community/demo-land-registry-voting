@@ -1,7 +1,7 @@
 "use client"
 
 import { RotateCcwIcon, SearchIcon, SlidersHorizontalIcon } from "lucide-react"
-import { useId } from "react"
+import { useId, useState } from "react"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
@@ -36,12 +36,13 @@ export function DemoControls() {
   const c = app.controls
   const demo = useDemo()
   const connected = demo?.wallet.status === "connected"
+  const [open, setOpen] = useState(false)
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="outline" className="px-3" title={c.open}>
           <SlidersHorizontalIcon className="size-4" />
-          <span className="sr-only lg:not-sr-only">{c.open}</span>
+          <span className="sr-only 2xl:not-sr-only">{c.open}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="flex w-[min(24rem,100vw)] flex-col gap-0 overflow-y-auto p-0">
@@ -64,6 +65,7 @@ export function DemoControls() {
             variant="destructive"
             onClick={() => {
               resetDemo()
+              setOpen(false)
               toast.success(c.resetDone)
             }}
           >

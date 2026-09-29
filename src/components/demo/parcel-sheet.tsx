@@ -89,7 +89,7 @@ export function ParcelSheet({ lotId, onClose }: { lotId: string | null; onClose:
                 <h3 id="lot-history" className="annot text-[0.68rem]">
                   {c.history}
                 </h3>
-                <span className="text-xs text-muted-foreground">{t(c.inProposals, { n: involved })}</span>
+                <span className="text-xs text-muted-foreground">{involved === 1 ? c.inProposal : t(c.inProposals, { n: involved })}</span>
               </div>
               {history.length === 0 ? (
                 <p className="mt-3 rounded-sm border border-dashed px-3 py-4 text-sm text-muted-foreground">{c.historyEmpty}</p>

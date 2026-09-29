@@ -167,7 +167,6 @@ export function DraftView() {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
       <h1 className="text-3xl font-extrabold tracking-display">{d.title}</h1>
-      <p className="mt-2 max-w-2xl text-muted-foreground">{d.intro}</p>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <span className="annot text-[0.62rem] text-muted-foreground">{d.templates}</span>
@@ -274,7 +273,13 @@ export function DraftView() {
               <InteractivePlan idPrefix="draft" box={box} area={draft.lots} onLot={toggleLot} legend={{ area: true }} votes={Object.fromEntries(draft.lots.map((id) => [id, "for" as const]))} />
               <LotFinder onPick={toggleLot} />
               {draft.lots.length > 0 && draft.lots.length <= 24 && (
-                <p className="font-mono text-[0.7rem] leading-relaxed text-muted-foreground">{draft.lots.map(formatLot).join(" · ")}</p>
+                <p className="flex flex-wrap gap-x-3 font-mono text-[0.7rem] leading-relaxed text-muted-foreground">
+                  {draft.lots.map((id) => (
+                    <span key={id} className="whitespace-nowrap">
+                      {formatLot(id)}
+                    </span>
+                  ))}
+                </p>
               )}
             </section>
 

@@ -71,16 +71,10 @@ export function LocaleSwitch({ locale, label, names }: { locale: Locale; label: 
   )
 }
 
-/** Right-hand header action: the demo link on marketing pages, a demo badge inside the app. */
-export function HeaderAction({ demoHref, demoLabel, badge }: { demoHref: string; demoLabel: string; badge: string }) {
+/** Right-hand header action: the demo link on marketing pages; inside the app the wallet lives in the app bar. */
+export function HeaderAction({ demoHref, demoLabel }: { demoHref: string; demoLabel: string }) {
   const pathname = usePathname() ?? ""
-  if (isActive(pathname, demoHref)) {
-    return (
-      <span className="annot hidden items-center gap-1.5 rounded-sm border border-dashed border-foreground/40 px-2 py-1 text-[0.65rem] text-muted-foreground sm:inline-flex">
-        {badge}
-      </span>
-    )
-  }
+  if (isActive(pathname, demoHref)) return null
   return (
     <Button asChild size="sm" className="hidden sm:inline-flex">
       <Link href={demoHref}>{demoLabel}</Link>

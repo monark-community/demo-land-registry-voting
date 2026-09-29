@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 
 import { isLocale, locales } from "@/i18n/config"
 import { getDictionary } from "@/i18n"
-import { lotPath, lotsIn } from "@/lib/demo/geo"
+import { lotById, lotPath, lotsIn } from "@/lib/demo/geo"
 
 export const alt = "LandVote"
 export const size = { width: 1200, height: 630 }
@@ -22,6 +22,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
   const locale = isLocale(raw) ? raw : "en"
   const d = getDictionary(locale)
   const lots = lotsIn("tanneries")
+  const mine = lotById("4512087")!
 
   return new ImageResponse(
     (
@@ -39,8 +40,8 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           <div style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.06, letterSpacing: -2 }}>{d.meta.ogTagline}</div>
           <div style={{ fontSize: 22, color: "#565D56", letterSpacing: 2 }}>{d.common.demoBadge.toUpperCase()}</div>
         </div>
-        <div style={{ display: "flex", marginLeft: 40, border: "3px solid #17201C", background: "#FBFAF6", boxShadow: "6px 6px 0 rgba(23,32,28,0.15)" }}>
-          <svg width="470" height="500" viewBox="40 50 400 245">
+        <div style={{ display: "flex", alignItems: "center", marginLeft: 40, padding: 12, border: "3px solid #17201C", background: "#FBFAF6", boxShadow: "6px 6px 0 rgba(23,32,28,0.15)", alignSelf: "center" }}>
+          <svg width="460" height="282" viewBox="40 50 400 245">
             <defs>
               <pattern id="ag" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                 <line x1="0" y1="0" x2="0" y2="6" stroke="#B5432A" strokeWidth="2.2" />
@@ -54,8 +55,8 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
               const fill = c === "for" ? "#1D5C45" : c === "against" ? "url(#ag)" : c === "abstain" ? "url(#ab)" : "#FBFAF6"
               return <path key={l.id} d={lotPath(l)} fill={l.id === "4512087" ? "#F1E3A6" : fill} fillOpacity={c === "for" && l.id !== "4512087" ? 0.7 : 1} stroke="#3B4540" strokeWidth="1" />
             })}
-            <circle cx="291" cy="228" r="13" fill="#FBFAF6" stroke="#17201C" strokeWidth="2" />
-            <path d="M285 228 l4 4 l7 -8" fill="none" stroke="#1D5C45" strokeWidth="2.6" strokeLinecap="round" />
+            <circle cx={mine.centroid[0]} cy={mine.centroid[1]} r="12" fill="#FBFAF6" stroke="#17201C" strokeWidth="2" />
+            <path d={`M${mine.centroid[0] - 5} ${mine.centroid[1]} l4 4 l7 -8`} fill="none" stroke="#1D5C45" strokeWidth="2.6" strokeLinecap="round" />
           </svg>
         </div>
       </div>

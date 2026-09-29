@@ -43,7 +43,8 @@ export function AppProvider({ copy, locale, children }: { copy: AppCopy; locale:
       <ConnectContext.Provider value={{ connect, rejected }}>
         {children}
         <WalletPrompt />
-        <Toaster position="top-right" offset={{ top: 124, right: 16 }} mobileOffset={{ top: 124 }} />
+        {/* Bottom-left: clear of the ballot/review column and of the demo-controls sheet. */}
+        <Toaster position="bottom-left" offset={{ bottom: 20, left: 20 }} mobileOffset={{ bottom: 16 }} />
       </ConnectContext.Provider>
     </AppContext.Provider>
   )

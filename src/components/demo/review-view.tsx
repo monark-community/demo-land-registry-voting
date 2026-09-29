@@ -298,7 +298,6 @@ export function ReviewView() {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
       <h1 className="text-3xl font-extrabold tracking-display">{r.title}</h1>
-      <p className="mt-2 max-w-2xl text-muted-foreground">{r.intro}</p>
       {clear && <p className="mt-6 rounded-md border border-dashed px-4 py-5 text-sm text-muted-foreground">{r.empty}</p>}
       <div className="mt-8 grid gap-10 lg:grid-cols-2">
         <div className="flex flex-col gap-10">

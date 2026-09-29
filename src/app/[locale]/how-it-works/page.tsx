@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react"
+import { ArrowRightIcon, PlusIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -69,14 +69,14 @@ export default async function HowItWorks({ params }: PageProps<"/[locale]/how-it
     "4512072": "for", "4512078": "for", "4512081": "for", "4512087": "for", "4512090": "for",
     "4512074": "against", "4512089": "against", "4512083": "abstain",
   }
-  const heronsAndPark = [...lotsIn("herons"), ...lotsIn("nord")].map((l) => l.id)
+  // Area weighting matters where large lots meet small ones: Parc Nord beside Les Tanneries.
+  const tanneriesAndPark = [...lotsIn("tanneries"), ...lotsIn("nord")].map((l) => l.id)
 
   return (
     <article className="flex flex-col">
       <header className="survey-grid border-b border-foreground/15">
         <div className="mx-auto w-full max-w-5xl px-4 py-14 sm:px-6 lg:py-20">
-          <p className="annot text-primary">{h.eyebrow}</p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-display sm:text-5xl">{h.title}</h1>
+          <h1 className="text-4xl font-extrabold tracking-display sm:text-5xl">{h.title}</h1>
           <p className="mt-5 max-w-3xl text-lg text-muted-foreground sm:text-xl">{h.lead}</p>
         </div>
       </header>
@@ -113,13 +113,13 @@ export default async function HowItWorks({ params }: PageProps<"/[locale]/how-it
         <h2 id="rules" className="text-2xl font-extrabold tracking-display sm:text-3xl">
           {h.rules.title}
         </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 md:grid-cols-[430fr_920fr]">
           {[
-            { r: h.rules.lot, box: { x: 30, y: 30, w: 420, h: 290 }, area: tanneries },
-            { r: h.rules.area, box: { x: 470, y: 30, w: 520, h: 360 }, area: heronsAndPark },
-          ].map(({ r, box, area }, i) => (
+            { r: h.rules.lot, box: { x: 30, y: 20, w: 430, h: 300 }, area: tanneries, aspect: "aspect-[430/300]" },
+            { r: h.rules.area, box: { x: 30, y: 20, w: 920, h: 300 }, area: tanneriesAndPark, aspect: "aspect-[920/300]" },
+          ].map(({ r, box, area, aspect }, i) => (
             <figure key={r.title} className="flex flex-col overflow-hidden rounded-md border border-foreground/40 bg-card">
-              <div className="aspect-[11/8] border-b border-foreground/20">
+              <div className={`${aspect} border-b border-foreground/20`}>
                 <PlanSvg labels={dict.plan.labels} title={r.title} idPrefix={`rule${i}`} box={box} area={area} numbers={false} />
               </div>
               <figcaption className="p-4">
@@ -169,12 +169,31 @@ export default async function HowItWorks({ params }: PageProps<"/[locale]/how-it
         <p className="mt-4 max-w-3xl text-muted-foreground">{h.record.body}</p>
         <h2 className="mt-12 text-2xl font-extrabold tracking-display sm:text-3xl">{h.dev.title}</h2>
         <p className="mt-4 max-w-3xl text-muted-foreground">{h.dev.body}</p>
-        <figure className="mt-6 overflow-hidden rounded-md border border-foreground/40 bg-foreground text-background">
+        <figure className="mt-6 overflow-hidden rounded-md border border-foreground/40 bg-[#17201c] text-[#ece9df]">
           <figcaption className="annot border-b border-background/20 px-4 py-2 text-[0.62rem] opacity-80">{h.dev.codeLabel}</figcaption>
           <pre className="overflow-x-auto p-4 font-mono text-[0.8rem] leading-relaxed" tabIndex={0}>
             <code>{CODE}</code>
           </pre>
         </figure>
+      </section>
+
+      <section aria-labelledby="faq" className="border-t border-foreground/15 bg-card">
+        <div className="mx-auto w-full max-w-5xl px-4 py-14 sm:px-6">
+          <h2 id="faq" className="text-2xl font-extrabold tracking-display sm:text-3xl">
+            {h.faq.title}
+          </h2>
+          <div className="mt-6 border-t border-foreground/25">
+            {h.faq.items.map((f) => (
+              <details key={f.q} className="group border-b border-foreground/25">
+                <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-lg font-semibold marker:hidden [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <PlusIcon className="size-5 shrink-0 transition-transform group-open:rotate-45" aria-hidden="true" />
+                </summary>
+                <p className="max-w-[62ch] pb-5 text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section aria-labelledby="cta" className="survey-grid border-t border-foreground/15">

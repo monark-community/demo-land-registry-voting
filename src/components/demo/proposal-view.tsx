@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowLeftIcon, CheckIcon, CircleDashedIcon, FileCheck2Icon, Loader2Icon, XIcon } from "lucide-react"
+import { ArrowLeftIcon, CheckIcon, CircleDashedIcon, FileCheck2Icon, InfoIcon, Loader2Icon, XIcon } from "lucide-react"
 import Link from "next/link"
 import { useMemo, useState } from "react"
 
@@ -100,7 +100,7 @@ function BallotsCast({ p }: { p: Proposal }) {
   const list = Object.values(demo?.votes[p.id] ?? {}).sort((a, b) => b.at - a.at)
   const shown = all ? list : list.slice(0, 8)
   return (
-    <Panel title={c.title} id="ballots-title" action={<span className="text-xs text-muted-foreground">{c.note}</span>}>
+    <Panel title={c.title} id="ballots-title">
       {list.length === 0 ? (
         <p className="text-sm text-muted-foreground">{c.empty}</p>
       ) : (
@@ -297,7 +297,12 @@ export function ProposalView({ id }: { id: string }) {
               </li>
               <li className="text-muted-foreground">{p.tenantsVote ? pt.rule.tenantsYes : pt.rule.tenantsNo}</li>
               <li className="text-muted-foreground">{t(pt.rule.quorum, { q: p.quorum })}</li>
-              <li className="text-muted-foreground">{pt.rule.majority}</li>
+              <li>
+                <Link href={href(locale, "/how-it-works")} className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline">
+                  <InfoIcon className="size-3.5" aria-hidden="true" />
+                  {pt.rule.how}
+                </Link>
+              </li>
               <li className="annot pt-1 text-[0.62rem] text-muted-foreground">
                 {t(pt.rule.eligible, { b: ballots.length, l: p.lots.length })} · {domain.districts[demoDistrict(p)]}
               </li>

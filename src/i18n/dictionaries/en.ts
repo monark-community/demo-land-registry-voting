@@ -2,6 +2,7 @@ const en = {
   common: {
     skip: "Skip to content",
     demoBadge: "Demo · simulated data",
+    demoChip: "Demo",
     openDemo: "Open the demo",
     menu: "Open menu",
     closeMenu: "Close menu",
@@ -169,8 +170,7 @@ const en = {
   home: {
     eyebrow: "Land-use votes for towns and neighbourhoods",
     title: "Every lot gets a say in what's built next.",
-    lead:
-      "LandVote lets owners and tenants vote on zoning, roads and green space from a map of their own lots. Every vote is signed, counted in the open and filed with the municipal registry.",
+    lead: "Owners and tenants vote on zoning, roads and parks from a map of their lots. Every ballot signed, counted openly, filed in the registry.",
     primary: "Open the Belrive demo",
     secondary: "How a vote works",
     heroCaption: "Proposal P-2026-014 · rue des Tanneurs, four-storey mixed use",
@@ -180,8 +180,7 @@ const en = {
     heroNotes: ["Owners only", "One lot, one vote", "Closes in 3 days"],
     problem: {
       title: "The hearing problem",
-      body:
-        "Land-use decisions are still made at 7 p.m. on a Tuesday, in a room that holds eighty. The people who come are rarely the people who live with the result, and the count ends up in a PDF nobody can check.",
+      body: "Land-use decisions are still made at 7 p.m. on a Tuesday, by whoever fits in the room.",
       facts: [
         "Only the people in the room are heard.",
         "Eligibility is checked by hand, if at all.",
@@ -205,11 +204,11 @@ const en = {
       items: [
         {
           title: "For residents",
-          body: "See what is planned next door, find out in one tap if your lot gives you a say, and keep a receipt of your vote.",
+          body: "See what's planned next door, whether your lot gives you a say, and keep a receipt.",
         },
         {
           title: "For clerks and councils",
-          body: "Eligibility comes from the registry, not a sign-in sheet. Certify a result in one step and file it with a reference number.",
+          body: "Eligibility from the registry, not a sign-in sheet. Certify in one step, filed with a reference.",
         },
         {
           title: "For proposers",
@@ -221,16 +220,21 @@ const en = {
     },
     street: {
       title: "From the plan to the street",
-      body:
-        "Each outline on the plan is a real lot with an owner, sometimes a tenant, and a vote. LandVote reads them from the registry, so nobody has to prove where they live.",
+      body: "Every outline is a real lot, read from the registry. Nobody has to prove where they live.",
       photoAlt: "Aerial view of a garden neighbourhood with lot boundaries drawn over the houses.",
       caption: "Annex C · lot lines over an aerial photo",
-      points: [
-        { k: "Lots", v: "attested to wallets by the registry" },
-        { k: "Ballots", v: "one per lot and holder, signed" },
-        { k: "Results", v: "filed with a registry reference" },
-      ],
     },
+    closing: {
+      title: "Walk through a vote in Belrive.",
+      body: "Three lots, six proposals, one town clerk. Four minutes.",
+      cta: "Open the Belrive demo",
+    },
+  },
+
+  how: {
+    eyebrow: "How it works",
+    title: "How a vote works",
+    lead: "Who votes, how it's counted, and how the result reaches the registry.",
     faq: {
       title: "Questions from councils and residents",
       items: [
@@ -254,24 +258,8 @@ const en = {
           q: "Is the result legally binding?",
           a: "That depends on your council's by-laws. LandVote gives you a clean, verifiable count and files it; the council decides what weight it carries.",
         },
-        {
-          q: "Is this demo real?",
-          a: "It is a simulation: a made-up town, a simulated wallet and network. Nothing you do leaves your browser.",
-        },
       ],
     },
-    closing: {
-      title: "Walk through a vote in Belrive.",
-      body: "Three lots, six proposals, one town clerk. It takes four minutes.",
-      cta: "Open the Belrive demo",
-    },
-  },
-
-  how: {
-    eyebrow: "How it works",
-    title: "How a vote works",
-    lead:
-      "LandVote turns a land-use question into a vote that only the right people can cast, that anyone can recount, and that ends up in the registry. Here is every step, with the rules the demo uses.",
     lifecycle: {
       title: "The life of a proposal",
       steps: [
@@ -285,8 +273,7 @@ const en = {
     },
     who: {
       title: "Who can vote",
-      body:
-        "Eligibility comes from the land registry, not from a sign-up form. When a resident signs in, LandVote asks the registry which lots are attested to their wallet, as owner or as registered tenant (a lease on file). A proposal's affected area is a list of lots; only holders of those lots get a ballot.",
+      body: "Holders of the affected lots, as attested by the land registry: owners, and registered tenants when the proposal includes them.",
       points: [
         "An owner of several lots in the area votes once per lot.",
         "Tenants vote only when the proposal includes them.",
@@ -301,16 +288,14 @@ const en = {
       },
       area: {
         title: "Weighted by area",
-        body: "Each lot counts in proportion to its area, capped at 2,000 m², so an industrial lot can't outvote a street. For parks, large sites and shared infrastructure.",
+        body: "Lots count by area, capped at 2,000 m², so an industrial lot can't outvote a street.",
       },
       exampleTitle: "Worked example",
-      example:
-        "Rue des Tanneurs has 20 lots and a 40 % quorum, so at least 8 lots must vote. If 5 vote for, 2 against and 1 abstains, quorum is met (8 of 20) and the proposal passes, 5 to 2.",
+      example: "20 lots, 40 % quorum: 8 must vote. 5 for, 2 against, 1 abstains: quorum met, passes 5 to 2.",
     },
     quorum: {
       title: "Quorum and results",
-      body:
-        "Quorum is fixed before voting opens. Abstentions count toward quorum but not toward the result. A proposal passes when for outweighs against; a tie fails. Without quorum, the result is recorded as “no quorum”, which is itself a signal for the council.",
+      body: "Set before voting opens. Abstentions count for quorum only; ties fail; “no quorum” is recorded as a result.",
     },
     roles: {
       title: "Three roles",
@@ -322,13 +307,11 @@ const en = {
     },
     record: {
       title: "The public record and the registry",
-      body:
-        "Every step is a signed transaction: submission, opening, each ballot, closing and certification. The public record lists them with their hashes, so anyone can recount a result from scratch. When the clerk certifies a result, LandVote files it with the municipal land registry and keeps the registry's reference number next to the certificate. If the registry is down, the certificate stands and the filing retries.",
+      body: "Every step is a signed transaction anyone can recount. Certified results are filed in the registry with a reference.",
     },
     dev: {
       title: "Under the hood",
-      body:
-        "A proposal is a small record: affected lots, rule, tenant flag, quorum, voting window and status. Ballots are events keyed by lot and holder role, which rules out double voting and makes recounts trivial. Attestations are signed by the registry. In this demo, all of it lives in a typed data layer in the browser (src/lib/demo), shaped so it can be swapped for contract calls without touching the interface.",
+      body: "Ballots are events keyed by lot and holder role: no double voting, trivial recounts. The demo mirrors this in src/lib/demo.",
       codeLabel: "Contract shape (sketch)",
     },
     cta: { title: "See it in Belrive", body: "Vote on the rue des Tanneurs rezoning, then certify a result as the clerk.", button: "Open the Belrive demo" },
@@ -343,7 +326,7 @@ const en = {
     storageWarning: "Your browser blocks storage, so the demo starts over when you reload.",
     gate: {
       title: "Find your land",
-      body: "Connect the demo wallet and LandVote looks up the lots it holds in the Belrive land registry. You can browse the plan and every proposal without connecting.",
+      body: "Connect the demo wallet to look up its lots in Belrive's land registry.",
       cta: "Connect demo wallet",
       rejected: "You declined the sign-in request.",
     },
@@ -355,8 +338,7 @@ const en = {
       failed: "The land registry didn't answer. Your wallet is fine; try again in a moment.",
       retry: "Try again",
       noneTitle: "No lots are linked to this wallet",
-      noneBody:
-        "You can still read every proposal and the public record. To vote, a lot must be attested to your wallet by the registry, as owner or as registered tenant.",
+      noneBody: "To vote, the registry must attest a lot to your wallet.",
       show: "Show on plan",
     },
     proposals: {
@@ -372,7 +354,7 @@ const en = {
       voted: "You voted",
       returned: "Returned to proposer",
       empty: {
-        open: "Nothing is open for a vote right now. New proposals appear here after the clerk's review.",
+        open: "Nothing is open for a vote right now.",
         review: "No proposal is waiting for review.",
         closed: "No vote has closed yet.",
       },
@@ -394,6 +376,7 @@ const en = {
       historyEmpty: "No votes from this lot yet.",
       openProposal: "Open proposal",
       inProposals: "In {n} proposals",
+      inProposal: "In 1 proposal",
     },
     proposal: {
       back: "Back to the plan",
@@ -428,6 +411,7 @@ const en = {
         tenantsNo: "Owners vote; tenants don't.",
         quorum: "Quorum: {q} % of eligible weight must take part.",
         majority: "Passes with more for than against. Abstentions count toward quorum only.",
+        how: "How is this counted?",
         eligible: "{b} ballots on {l} lots",
       },
       timeline: {
@@ -488,8 +472,8 @@ const en = {
       rejected: "You declined the signature. Nothing was sent.",
       reverted: "The network rejected the vote. Nothing was recorded.",
       retry: "Try again",
-      final: "Ballots are final once signed.",
-      fee: "Network fee sponsored by the City of Belrive.",
+      final: "Final once signed.",
+      fee: "Network fee sponsored by Belrive.",
       notOpen: "Voting hasn't opened yet. The clerk reviews every proposal first.",
       closed: "Voting is closed.",
       roleNote: "You are acting as {role}. Residents vote with their own lots.",
@@ -602,7 +586,7 @@ const en = {
     },
     record: {
       title: "Public record",
-      intro: "Everything that happened in Belrive's votes, newest first. Anyone can read it and recount any result.",
+      intro: "Every proposal, ballot and result, newest first.",
       filters: { all: "All", proposals: "Proposals", votes: "Ballots", certifications: "Results" },
       filterLabel: "Show",
       search: "Filter by lot",

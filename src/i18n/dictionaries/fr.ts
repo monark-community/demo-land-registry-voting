@@ -4,6 +4,7 @@ const fr: Dictionary = {
   common: {
     skip: "Aller au contenu",
     demoBadge: "Démo · données simulées",
+    demoChip: "Démo",
     openDemo: "Ouvrir la démo",
     menu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
@@ -171,8 +172,7 @@ const fr: Dictionary = {
   home: {
     eyebrow: "Votes d'aménagement pour les villes et les quartiers",
     title: "Chaque terrain a voix au chapitre sur ce qui s'y bâtit.",
-    lead:
-      "LandVote permet aux propriétaires et aux locataires de voter sur le zonage, la voirie et les espaces verts à partir d'un plan de leurs propres terrains. Chaque vote est signé, compté au grand jour et versé au registre municipal.",
+    lead: "Propriétaires et locataires votent sur le zonage, la voirie et les parcs depuis le plan de leurs terrains. Bulletins signés, comptés au grand jour, versés au registre.",
     primary: "Ouvrir la démo de Belrive",
     secondary: "Le déroulement d'un vote",
     heroCaption: "Proposition P-2026-014 · rue des Tanneurs, mixte de quatre étages",
@@ -182,8 +182,7 @@ const fr: Dictionary = {
     heroNotes: ["Propriétaires seulement", "Un terrain, un vote", "Ferme dans 3 jours"],
     problem: {
       title: "Le problème de l'assemblée publique",
-      body:
-        "Les décisions d'aménagement se prennent encore un mardi à 19 h, dans une salle de quatre-vingts places. Ceux qui s'y présentent sont rarement ceux qui vivront avec le résultat, et le décompte finit dans un PDF que personne ne peut vérifier.",
+      body: "Les décisions d'aménagement se prennent encore un mardi à 19 h, par ceux qui tiennent dans la salle.",
       facts: [
         "Seules les personnes présentes sont entendues.",
         "L'admissibilité se vérifie à la main, quand elle se vérifie.",
@@ -207,11 +206,11 @@ const fr: Dictionary = {
       items: [
         {
           title: "Pour les résidents",
-          body: "Voyez ce qui se prépare à côté de chez vous, sachez d'un geste si votre terrain vous donne droit de vote et gardez le reçu de votre vote.",
+          body: "Voyez ce qui se prépare à côté, si votre terrain vous donne voix, et gardez votre reçu.",
         },
         {
           title: "Pour les greffes et les conseils",
-          body: "L'admissibilité vient du registre, pas d'une feuille de présence. Certifiez un résultat en une étape et versez-le au registre avec un numéro de référence.",
+          body: "L'admissibilité vient du registre, pas d'une feuille de présence. Certifiez en une étape, avec référence.",
         },
         {
           title: "Pour les porteurs de projet",
@@ -223,16 +222,21 @@ const fr: Dictionary = {
     },
     street: {
       title: "Du plan à la rue",
-      body:
-        "Chaque contour du plan est un vrai terrain, avec un propriétaire, parfois un locataire, et un vote. LandVote les lit dans le registre : personne n'a à prouver où il habite.",
+      body: "Chaque contour est un vrai terrain, lu dans le registre. Personne n'a à prouver où il habite.",
       photoAlt: "Vue aérienne d'un quartier de jardins, avec les limites des terrains tracées par-dessus les maisons.",
       caption: "Annexe C · limites de lots sur une photo aérienne",
-      points: [
-        { k: "Terrains", v: "attestés aux portefeuilles par le registre" },
-        { k: "Bulletins", v: "un par terrain et par titulaire, signé" },
-        { k: "Résultats", v: "versés au registre avec une référence" },
-      ],
     },
+    closing: {
+      title: "Faites voter Belrive.",
+      body: "Trois terrains, six propositions, un greffe. Quatre minutes.",
+      cta: "Ouvrir la démo de Belrive",
+    },
+  },
+
+  how: {
+    eyebrow: "Fonctionnement",
+    title: "Le déroulement d'un vote",
+    lead: "Qui vote, comment on compte, et comment le résultat arrive au registre.",
     faq: {
       title: "Questions des conseils et des résidents",
       items: [
@@ -256,24 +260,8 @@ const fr: Dictionary = {
           q: "Le résultat a-t-il force de loi ?",
           a: "Cela dépend des règlements de votre conseil. LandVote fournit un décompte net et vérifiable et le consigne ; le conseil décide de sa portée.",
         },
-        {
-          q: "Cette démo est-elle réelle ?",
-          a: "C'est une simulation : une ville fictive, un portefeuille et un réseau simulés. Rien de ce que vous faites ne quitte votre navigateur.",
-        },
       ],
     },
-    closing: {
-      title: "Faites voter Belrive.",
-      body: "Trois terrains, six propositions, un greffe. Quatre minutes suffisent.",
-      cta: "Ouvrir la démo de Belrive",
-    },
-  },
-
-  how: {
-    eyebrow: "Fonctionnement",
-    title: "Le déroulement d'un vote",
-    lead:
-      "LandVote transforme une question d'aménagement en un vote que seules les bonnes personnes peuvent exprimer, que chacun peut recompter et qui aboutit au registre. Voici chaque étape, avec les règles qu'applique la démo.",
     lifecycle: {
       title: "La vie d'une proposition",
       steps: [
@@ -287,8 +275,7 @@ const fr: Dictionary = {
     },
     who: {
       title: "Qui peut voter",
-      body:
-        "L'admissibilité vient du registre foncier, pas d'un formulaire d'inscription. À la connexion, LandVote demande au registre quels terrains sont attestés au portefeuille du résident, comme propriétaire ou comme locataire inscrit (bail au dossier). La zone visée par une proposition est une liste de terrains ; seuls leurs titulaires reçoivent un bulletin.",
+      body: "Les titulaires des terrains visés, attestés par le registre foncier : les propriétaires, et les locataires inscrits si la proposition les inclut.",
       points: [
         "Un propriétaire de plusieurs terrains dans la zone vote une fois par terrain.",
         "Les locataires ne votent que si la proposition les inclut.",
@@ -303,16 +290,14 @@ const fr: Dictionary = {
       },
       area: {
         title: "Pondéré par la superficie",
-        body: "Chaque terrain compte selon sa superficie, plafonnée à 2 000 m², pour qu'un terrain industriel ne l'emporte pas sur toute une rue. Pour les parcs, les grands sites et les infrastructures partagées.",
+        body: "Chaque terrain compte selon sa superficie, plafonnée à 2 000 m² : un terrain industriel ne l'emporte pas sur une rue.",
       },
       exampleTitle: "Exemple",
-      example:
-        "La rue des Tanneurs compte 20 terrains et un quorum de 40 % : au moins 8 terrains doivent voter. Si 5 votent pour, 2 contre et 1 s'abstient, le quorum est atteint (8 sur 20) et la proposition est adoptée, 5 contre 2.",
+      example: "20 terrains, quorum de 40 % : 8 doivent voter. 5 pour, 2 contre, 1 abstention : quorum atteint, adoptée 5 contre 2.",
     },
     quorum: {
       title: "Quorum et résultats",
-      body:
-        "Le quorum est fixé avant l'ouverture du vote. Les abstentions comptent pour le quorum, mais pas pour le résultat. Une proposition est adoptée quand le pour l'emporte sur le contre ; l'égalité la rejette. Sans quorum, le résultat est consigné comme « sans quorum », ce qui est en soi un signal pour le conseil.",
+      body: "Fixé avant l'ouverture. Les abstentions ne comptent que pour le quorum ; l'égalité rejette ; « sans quorum » est un résultat consigné.",
     },
     roles: {
       title: "Trois rôles",
@@ -324,13 +309,11 @@ const fr: Dictionary = {
     },
     record: {
       title: "Le registre public et le registre foncier",
-      body:
-        "Chaque étape est une transaction signée : dépôt, ouverture, chaque bulletin, fermeture et certification. Le registre public les liste avec leurs empreintes, pour que chacun puisse recompter un résultat de zéro. Quand le greffe certifie un résultat, LandVote le verse au registre foncier municipal et conserve le numéro de référence à côté du certificat. Si le registre est indisponible, le certificat reste valide et le dépôt est relancé.",
+      body: "Chaque étape est une transaction signée que chacun peut recompter. Les résultats certifiés sont versés au registre avec une référence.",
     },
     dev: {
       title: "Sous le capot",
-      body:
-        "Une proposition est un petit enregistrement : terrains touchés, règle, participation des locataires, quorum, période de vote et statut. Les bulletins sont des événements indexés par terrain et par rôle du titulaire, ce qui empêche le double vote et rend le recomptage trivial. Les attestations sont signées par le registre. Dans cette démo, tout vit dans une couche de données typée du navigateur (src/lib/demo), pensée pour être remplacée par des appels de contrat sans toucher à l'interface.",
+      body: "Les bulletins sont des événements indexés par terrain et par rôle : pas de double vote, recomptage trivial. La démo le reproduit dans src/lib/demo.",
       codeLabel: "Forme du contrat (esquisse)",
     },
     cta: { title: "À l'essai dans Belrive", body: "Votez sur le rezonage de la rue des Tanneurs, puis certifiez un résultat à titre de greffier.", button: "Ouvrir la démo de Belrive" },
@@ -345,7 +328,7 @@ const fr: Dictionary = {
     storageWarning: "Votre navigateur bloque le stockage : la démo repart de zéro à chaque rechargement.",
     gate: {
       title: "Trouvez vos terrains",
-      body: "Connectez le portefeuille de démo et LandVote cherche les terrains qu'il détient au registre foncier de Belrive. Vous pouvez parcourir le plan et toutes les propositions sans vous connecter.",
+      body: "Connectez le portefeuille de démo pour trouver ses terrains au registre foncier de Belrive.",
       cta: "Connecter le portefeuille de démo",
       rejected: "Vous avez refusé la demande de connexion.",
     },
@@ -357,8 +340,7 @@ const fr: Dictionary = {
       failed: "Le registre foncier n'a pas répondu. Votre portefeuille n'est pas en cause ; réessayez dans un instant.",
       retry: "Réessayer",
       noneTitle: "Aucun terrain n'est lié à ce portefeuille",
-      noneBody:
-        "Vous pouvez tout de même consulter les propositions et le registre public. Pour voter, un terrain doit être attesté à votre portefeuille par le registre, comme propriétaire ou comme locataire inscrit.",
+      noneBody: "Pour voter, le registre doit attester un terrain à votre portefeuille.",
       show: "Voir sur le plan",
     },
     proposals: {
@@ -374,7 +356,7 @@ const fr: Dictionary = {
       voted: "Vous avez voté",
       returned: "Renvoyée au porteur",
       empty: {
-        open: "Aucun vote n'est ouvert pour le moment. Les nouvelles propositions apparaissent ici après l'examen du greffe.",
+        open: "Aucun vote n'est ouvert pour le moment.",
         review: "Aucune proposition n'attend d'examen.",
         closed: "Aucun vote n'est encore fermé.",
       },
@@ -396,6 +378,7 @@ const fr: Dictionary = {
       historyEmpty: "Aucun vote de ce terrain pour l'instant.",
       openProposal: "Voir la proposition",
       inProposals: "Visé par {n} propositions",
+      inProposal: "Visé par 1 proposition",
     },
     proposal: {
       back: "Retour au plan",
@@ -430,6 +413,7 @@ const fr: Dictionary = {
         tenantsNo: "Les propriétaires votent ; pas les locataires.",
         quorum: "Quorum : {q} % du poids admissible doit participer.",
         majority: "Adoptée si le pour l'emporte sur le contre. Les abstentions ne comptent que pour le quorum.",
+        how: "Comment le vote est-il compté ?",
         eligible: "{b} bulletins sur {l} terrains",
       },
       timeline: {
@@ -490,8 +474,8 @@ const fr: Dictionary = {
       rejected: "Vous avez refusé la signature. Rien n'a été envoyé.",
       reverted: "Le réseau a rejeté le vote. Rien n'a été enregistré.",
       retry: "Réessayer",
-      final: "Un bulletin signé est définitif.",
-      fee: "Frais de réseau pris en charge par la Ville de Belrive.",
+      final: "Définitif une fois signé.",
+      fee: "Frais de réseau pris en charge par Belrive.",
       notOpen: "Le vote n'est pas encore ouvert. Le greffe examine d'abord chaque proposition.",
       closed: "Le vote est fermé.",
       roleNote: "Vous agissez comme {role}. Les résidents votent avec leurs propres terrains.",
@@ -604,7 +588,7 @@ const fr: Dictionary = {
     },
     record: {
       title: "Registre public",
-      intro: "Tout ce qui s'est passé dans les votes de Belrive, du plus récent au plus ancien. Chacun peut le lire et recompter n'importe quel résultat.",
+      intro: "Chaque proposition, bulletin et résultat, du plus récent au plus ancien.",
       filters: { all: "Tout", proposals: "Propositions", votes: "Bulletins", certifications: "Résultats" },
       filterLabel: "Afficher",
       search: "Filtrer par lot",

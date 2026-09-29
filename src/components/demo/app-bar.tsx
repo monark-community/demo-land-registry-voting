@@ -3,11 +3,9 @@
 import { FilePlus2Icon, LandmarkIcon, MapIcon, ScrollTextIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { toast } from "sonner"
 
 import { ConnectWallet } from "@/components/ui/connect-wallet"
 import { href } from "@/i18n/config"
-import { t } from "@/i18n/t"
 import { disconnectWallet, setRole } from "@/lib/demo/ops"
 import { useDemo, useStorageOk } from "@/lib/demo/store"
 import type { Role } from "@/lib/demo/types"
@@ -25,7 +23,7 @@ export function RoleSwitch({ className }: { className?: string }) {
   const role = demo?.role ?? "resident"
   return (
     <div role="radiogroup" aria-label={app.actingAs} className={cn("flex items-center gap-2", className)}>
-      <span className="annot hidden text-[0.62rem] text-muted-foreground xl:inline">{app.actingAs}</span>
+      <span className="annot hidden text-[0.62rem] text-muted-foreground 2xl:inline">{app.actingAs}</span>
       <div className="flex rounded-md border border-foreground/30 bg-card p-0.5">
         {ROLES.map((r) => (
           <button
@@ -36,9 +34,7 @@ export function RoleSwitch({ className }: { className?: string }) {
             title={domain.roleHints[r]}
             disabled={!demo}
             onClick={() => {
-              if (role === r) return
-              setRole(r)
-              toast(t(app.roleSwitched, { role: domain.roles[r] }), { description: domain.roleHints[r] })
+              if (role !== r) setRole(r)
             }}
             className={cn(
               "h-9 rounded-sm px-2.5 text-[0.82rem] font-semibold text-muted-foreground transition-colors hover:text-foreground sm:px-3",
@@ -71,9 +67,9 @@ export function AppBar() {
   const w = demo?.wallet
 
   return (
-    <div className="sticky top-16 z-30 border-b border-foreground/15 bg-background/95">
+    <div className="z-30 border-b border-foreground/15 bg-background lg:sticky lg:top-16">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-2 sm:px-6 lg:flex-row lg:items-center lg:gap-4">
-        <nav aria-label={app.nav.label} className="-mx-1 overflow-x-auto">
+        <nav aria-label={app.nav.label} className="-mx-1 min-w-0 overflow-x-auto lg:flex-1">
           <ul className="flex min-w-max items-center gap-0.5 px-1">
             {tabs.map((tab) => {
               const on = active(tab)
@@ -96,7 +92,7 @@ export function AppBar() {
             })}
           </ul>
         </nav>
-        <div className="flex flex-wrap items-center gap-2 lg:ml-auto">
+        <div className="flex flex-wrap items-center gap-2 lg:shrink-0 lg:flex-nowrap">
           <RoleSwitch />
           <div className="ml-auto flex items-center gap-2">
             <DemoControls />
