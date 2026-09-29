@@ -1,0 +1,398 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-public-sans), "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-vote-for: var(--chart-1);
+  --color-vote-against: var(--chart-2);
+  --color-vote-abstain: var(--chart-3);
+  --color-mine: var(--chart-4);
+  --color-water: var(--chart-5);
+  --color-paper: var(--paper);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 2.5);
+  --radius-3xl: calc(var(--radius) * 3);
+  --radius-4xl: calc(var(--radius) * 4);
+}
+
+/*
+ * LandVote identity: "Survey plan, civic ink" (docs/site-plan.md §8).
+ * Drafting paper, ink linework, chancery green, ochre highlighter for the
+ * visitor's own lots, rust hatching for "against". Contrast ratios are
+ * listed in the plan.
+ */
+:root {
+  --radius: 0.25rem;
+  --background: #f3f1ea;
+  --paper: #f3f1ea;
+  --foreground: #17201c;
+  --card: #fbfaf6;
+  --card-foreground: #17201c;
+  --popover: #fbfaf6;
+  --popover-foreground: #17201c;
+  --primary: #1d5c45;
+  --primary-foreground: #f7f5ee;
+  --secondary: #e7e4da;
+  --secondary-foreground: #17201c;
+  --muted: #e7e4da;
+  --muted-foreground: #565d56;
+  --accent: #f1e3a6;
+  --accent-foreground: #17201c;
+  --destructive: #a3261b;
+  --border: #cfcabb;
+  --input: #8c8778;
+  --ring: #1d5c45;
+  --chart-1: #1d5c45;
+  --chart-2: #b5432a;
+  --chart-3: #7e7a6d;
+  --chart-4: #a87a12;
+  --chart-5: #4f7482;
+  --success: #1f6b45;
+  --warning: #8a5a00;
+  --grid: rgb(23 32 28 / 0.06);
+  --lot-fill: #fbfaf6;
+  --lot-line: #3b4540;
+  --shadow-paper: 2px 2px 0 rgb(23 32 28 / 0.14);
+  --sidebar: #fbfaf6;
+  --sidebar-foreground: #17201c;
+  --sidebar-primary: #1d5c45;
+  --sidebar-primary-foreground: #f7f5ee;
+  --sidebar-accent: #e7e4da;
+  --sidebar-accent-foreground: #17201c;
+  --sidebar-border: #cfcabb;
+  --sidebar-ring: #1d5c45;
+}
+
+.dark {
+  --background: #121815;
+  --paper: #121815;
+  --foreground: #ece9df;
+  --card: #1a211d;
+  --card-foreground: #ece9df;
+  --popover: #1a211d;
+  --popover-foreground: #ece9df;
+  --primary: #86c9a6;
+  --primary-foreground: #0e1a14;
+  --secondary: #232b26;
+  --secondary-foreground: #ece9df;
+  --muted: #232b26;
+  --muted-foreground: #a4aca3;
+  --accent: #3a3417;
+  --accent-foreground: #f3e3a0;
+  --destructive: #f0806f;
+  --border: #343d37;
+  --input: #6c756d;
+  --ring: #86c9a6;
+  --chart-1: #86c9a6;
+  --chart-2: #ee8a6a;
+  --chart-3: #a09e94;
+  --chart-4: #e2be5c;
+  --chart-5: #86aebc;
+  --success: #86c9a6;
+  --warning: #e9b949;
+  --grid: rgb(236 233 223 / 0.05);
+  --lot-fill: #1a211d;
+  --lot-line: #8d978f;
+  --shadow-paper: 2px 2px 0 rgb(0 0 0 / 0.45);
+  --sidebar: #1a211d;
+  --sidebar-foreground: #ece9df;
+  --sidebar-primary: #86c9a6;
+  --sidebar-primary-foreground: #0e1a14;
+  --sidebar-accent: #232b26;
+  --sidebar-accent-foreground: #ece9df;
+  --sidebar-border: #343d37;
+  --sidebar-ring: #86c9a6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    line-height: 1.6;
+    font-feature-settings: "tnum" 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .tracking-display {
+    letter-spacing: -0.025em;
+  }
+  /* Drafting annotation: small, uppercase, letter-spaced mono. */
+  .annot {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .shadow-paper {
+    box-shadow: var(--shadow-paper);
+  }
+  /* Double hairline rule, used as section divider. */
+  .rule-double {
+    border-top: 1px solid var(--foreground);
+    box-shadow: 0 3px 0 -2px var(--foreground);
+    opacity: 0.85;
+  }
+  .survey-grid {
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---- Plan ---- */
+.lot {
+  transition:
+    fill 240ms ease,
+    stroke 240ms ease,
+    opacity 240ms ease;
+}
+.lot-interactive {
+  cursor: pointer;
+}
+.lot-interactive:hover {
+  stroke: var(--foreground);
+  stroke-width: 2;
+}
+.lot-interactive:focus-visible {
+  outline: none;
+  stroke: var(--ring);
+  stroke-width: 3;
+}
+
+/* Signature moment 1: the seal stamps onto the lot. */
+@keyframes lv-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.6) rotate(-14deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.92) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-4deg);
+  }
+}
+@keyframes lv-ink {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+.seal {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-4deg);
+}
+.seal-new {
+  animation: lv-stamp 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.seal-ink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lv-ink 700ms ease-out both;
+}
+
+/* Signature moment 2: tally segments settle. */
+.tally-seg {
+  transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.quorum-tick {
+  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Signature moment 3: the registry line prints. */
+@keyframes lv-print {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.print-in {
+  animation: lv-print 900ms steps(28, end) both;
+}
+
+/* ---- Hero: the live consent plan (CSS only, loops every 12 s) ---- */
+.hero-vote {
+  fill-opacity: 0;
+  animation: hero-vote 12s ease-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes hero-vote {
+  0% {
+    fill-opacity: 0;
+  }
+  4%,
+  88% {
+    fill-opacity: 1;
+  }
+  96%,
+  100% {
+    fill-opacity: 0;
+  }
+}
+.hero-seal {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: hero-seal 12s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes hero-seal {
+  0% {
+    opacity: 0;
+    transform: scale(1.6) rotate(-14deg);
+  }
+  3% {
+    opacity: 1;
+    transform: scale(0.92) rotate(3deg);
+  }
+  5%,
+  86% {
+    opacity: 1;
+    transform: scale(1) rotate(-4deg);
+  }
+  94%,
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(-4deg);
+  }
+}
+.hero-bar {
+  transform-origin: left center;
+  animation: hero-bar 12s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes hero-bar {
+  0% {
+    transform: scaleX(0.02);
+  }
+  60%,
+  90% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.02);
+  }
+}
+.hero-reached {
+  opacity: 0;
+  animation: hero-reached 12s ease infinite;
+}
+@keyframes hero-reached {
+  0%,
+  62% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  66%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  96%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Show the hero in its settled state. */
+  .hero-vote {
+    animation: none;
+    fill-opacity: 1;
+  }
+  .hero-seal {
+    animation: none;
+    opacity: 1;
+    transform: rotate(-4deg);
+  }
+  .hero-bar {
+    animation: none;
+    transform: none;
+  }
+  .hero-reached {
+    animation: none;
+    opacity: 1;
+  }
+}
