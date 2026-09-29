@@ -246,11 +246,10 @@ function OpenCard({ p }: { p: Proposal }) {
         <TallyStrip p={p} tally={tl} size="sm" />
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <Button variant="outline" size="sm" onClick={() => void close()} disabled={tx.busy}>
+        <Button variant="outline" size="sm" onClick={() => void close()} disabled={tx.busy} title={r.closeNowHint}>
           {tx.busy && <Loader2Icon className="animate-spin" />}
           {r.closeNow}
         </Button>
-        <span className="text-xs text-muted-foreground">{r.closeNowHint}</span>
       </div>
       <div className="mt-3">
         <TxFeedback state={tx.state} pending={r.pending} rejected={r.rejected} reverted={r.reverted} confirmed={done && <p className="text-sm font-semibold text-success">{done}</p>} />

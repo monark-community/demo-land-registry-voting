@@ -169,7 +169,7 @@ export default async function HowItWorks({ params }: PageProps<"/[locale]/how-it
         <p className="mt-4 max-w-3xl text-muted-foreground">{h.record.body}</p>
         <h2 className="mt-12 text-2xl font-extrabold tracking-display sm:text-3xl">{h.dev.title}</h2>
         <p className="mt-4 max-w-3xl text-muted-foreground">{h.dev.body}</p>
-        <figure className="mt-6 overflow-hidden rounded-md border border-foreground/40 bg-[#17201c] text-[#ece9df]">
+        <figure className="mt-6 overflow-hidden rounded-md border border-foreground/40 bg-[#151b24] text-[#e8eaee]">
           <figcaption className="annot border-b border-background/20 px-4 py-2 text-[0.62rem] opacity-80">{h.dev.codeLabel}</figcaption>
           <pre className="overflow-x-auto p-4 font-mono text-[0.8rem] leading-relaxed" tabIndex={0}>
             <code>{CODE}</code>

@@ -570,7 +570,7 @@ const fr: Dictionary = {
       sendReturn: "Renvoyer",
       certify: "Certifier le résultat",
       retryFiling: "Relancer le dépôt",
-      closeNow: "Fermer le vote maintenant",
+      closeNow: "Fermer le vote maintenant (démo)",
       closeNowHint: "Raccourci de démo : met fin à la période de vote.",
       empty: "Votre bureau est dégagé. Rien n'attend d'examen ni de certification.",
       emptyOpen: "Aucun vote n'est ouvert.",

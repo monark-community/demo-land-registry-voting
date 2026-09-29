@@ -66,7 +66,7 @@ Supporting benefits, as outcomes:
   FR: *Propriétaires et locataires votent sur le zonage, la voirie et les parcs depuis le plan de leurs terrains. Bulletins signés, comptés au grand jour, versés au registre.*
 - **Primary CTA:** "Open the Belrive demo" / « Ouvrir la démo de Belrive » → `/{locale}/app`.
 - **Secondary CTA:** "How a vote works" / « Le déroulement d'un vote » → `/{locale}/how-it-works`.
-- **Visual:** the **live consent plan**, built in code (SVG, CSS-only animation, rendered on the server): a cropped cadastral plan of Les Tanneries with the proposal's affected area outlined. Lots fill in one by one with the voter's choice (green wash = for, rust hatching = against, dots = abstain), an ink seal lands on the visitor's own lot, and a tally strip beneath settles with its quorum tick passing the line ("Quorum reached · 41 %"). Product over photography because the plan *is* the product: the place, the rule and the count on one sheet. It loops calmly and stops under `prefers-reduced-motion`.
+- **Visual:** the **live consent plan**, built in code (SVG, CSS-only animation, rendered on the server): a cropped cadastral plan of Les Tanneries with the proposal's affected area outlined. Lots fill in one by one with the voter's choice (blue wash = for, rust hatching = against, dots = abstain), an ink seal lands on the visitor's own lot, and a tally strip beneath settles with its quorum tick passing the line ("Quorum reached · 41 %"). Product over photography because the plan *is* the product: the place, the rule and the count on one sheet. It loops calmly and stops under `prefers-reduced-motion`.
 
 ## 4. Page map
 
@@ -177,26 +177,29 @@ The full copy lives in `src/i18n/dictionaries/en.ts` and `fr.ts`.
 
 | Role | Light | Dark |
 |-|-|-|
-| background | `#F3F1EA` drafting paper | `#121815` night plan |
-| card / popover | `#FBFAF6` | `#1A211D` |
-| foreground | `#17201C` ink | `#ECE9DF` |
-| primary | `#1D5C45` chancery green | `#86C9A6` sage |
-| primary-foreground | `#F7F5EE` | `#0E1A14` |
-| secondary / muted | `#E7E4DA` | `#232B26` |
-| muted-foreground | `#565D56` | `#A4ACA3` |
-| accent (your lots, highlighter) | `#F1E3A6` / fg `#17201C` | `#3A3417` / fg `#F3E3A0` |
-| border | `#CFCABB` | `#343D37` |
-| input | `#8C8778` | `#6C756D` |
-| ring | `#1D5C45` | `#86C9A6` |
+| background | `#EEF0EB` drafting film | `#11151C` night plan |
+| card / popover | `#FAFAF7` | `#181E27` |
+| foreground | `#151B24` blue-black ink | `#E8EAEE` |
+| primary | `#1B4272` survey blue | `#94B8E6` |
+| primary-foreground | `#F4F6F9` | `#0D1420` |
+| secondary / muted | `#E0E3DE` | `#212833` |
+| muted-foreground | `#4F5761` | `#A5ADB8` |
+| accent (your lots, highlighter) | `#F1E3A6` / fg `#151B24` | `#3A3417` / fg `#F3E3A0` |
+| border | `#C6CAC4` | `#2F3845` |
+| input | `#80878C` | `#6B7584` |
+| ring | `#1B4272` | `#94B8E6` |
 | destructive | `#A3261B` | `#F0806F` |
-| chart-1 (for) | `#1D5C45` | `#86C9A6` |
+| chart-1 (for) | `#1B4272` | `#94B8E6` |
 | chart-2 (against) | `#B5432A` rust | `#EE8A6A` |
-| chart-3 (abstain) | `#7E7A6D` | `#A09E94` |
+| chart-3 (abstain) | `#7A7870` | `#A09E94` |
 | chart-4 (your lots) | `#A87A12` ochre | `#E2BE5C` |
-| chart-5 (water) | `#4F7482` | `#86AEBC` |
+| chart-5 (water) | `#3F7672` | `#7FB5B0` |
+| success (confirmed, public bank) | `#1F6B45` | `#86C9A6` |
 
-WCAG AA checks, light: foreground/background 14.75, foreground/card 15.96, muted-fg/background 6.00, muted-fg/muted 5.33, primary-fg/primary 7.21, primary/background 6.96, accent-fg/accent 12.92, destructive/background 6.52, destructive/card 7.05, input/background 3.18 (non-text ≥ 3), chart-1/card 7.53, chart-2/card 5.29, chart-3/card 4.11, chart-4/card 3.68 (graphics only), chart-5/card 4.84.
-Dark: foreground/background 14.81, foreground/card 13.51, muted-fg/background 7.72, muted-fg/muted 6.23, primary-fg/primary 9.28, primary/background 9.35, accent-fg/accent 9.69, destructive/background 6.87, input/background 3.77, chart-1..5 on card 8.54 / 6.63 / 6.11 / 9.19 / 6.87.
+**Decision:** the first draft used chancery green on warm cream; three other independent Monark-incubated brands (Cura, the pay-per-access product and the farm-goods product) already sit on cream with deep green or teal, so LandVote moved to survey blue on cool drafting film, the colours of blueprint linework, keeping the ochre highlighter and rust hatching.
+
+WCAG AA checks, light: foreground/background 15.07, foreground/card 16.54, muted-fg/background 6.38, muted-fg/card 7.00, muted-fg/muted 5.65, primary-fg/primary 9.38, primary/background 8.84, accent-fg/accent 13.41, destructive/background 6.42, destructive/card 7.05, input/background 3.18 (non-text ≥ 3), chart-1..5 on card 9.71 / 5.28 / 4.23 / 3.68 (graphics only) / 4.96, success/card 6.18.
+Dark: foreground/background 15.19, foreground/card 13.91, muted-fg/background 8.08, muted-fg/muted 6.55, primary-fg/primary 9.01, primary/background 8.94, accent-fg/accent 9.69, destructive/background 6.99, input/background 3.92, chart-1..5 on card 8.18 / 6.76 / 6.23 / 9.37 / 7.29, success/card 8.71.
 Vote choices are never colour-only: *for* is a solid wash, *against* is diagonal hatching, *abstain* is a dot screen, and every tally carries text labels.
 
 **Type** (two families, `next/font/google`):
@@ -204,7 +207,7 @@ Vote choices are never colour-only: *for* is a solid wash, *against* is diagonal
 - **Public Sans** (the typeface designed for government services): UI, body and headings. Weights 400, 500, 700, 800. Scale: 14 / 16 (body) / 18 / 22 / 28 / 36 / 48 / 60 px; display at 800 with −0.025em tracking; body line height 1.6.
 - **IBM Plex Mono**: lot numbers, hashes, coordinates, map annotations and small uppercase labels (400, 500, 600), letter-spaced like drafting annotations.
 
-**Logo.** A wordmark "LandVote" in Public Sans 800 preceded by a mark: a square lot split by one oblique boundary line into two parcels, one filled chancery green, with a small circular seal on the line. Favicon: the mark alone (`src/app/icon.svg`). Built in SVG (`src/components/site/logo.tsx`).
+**Logo.** A wordmark "LandVote" in Public Sans 800 preceded by a mark: a square lot split by one oblique boundary line into two parcels, one filled survey blue, with a small circular seal on the line. Favicon: the mark alone (`src/app/icon.svg`). Built in SVG (`src/components/site/logo.tsx`).
 
 **Shape.** Radius 4 px (`--radius: 0.25rem`): drafted, not bubbly. 1 px ink borders and double hairline rules as section dividers; no soft drop shadows, only a 2 px offset "paper" shadow on floating sheets. Faint survey grid (40 px) only behind plans. Motion is short and purposeful: 180 ms UI transitions, a 420 ms seal stamp, tallies easing over 700 ms; everything respects `prefers-reduced-motion`.
 
@@ -216,7 +219,7 @@ Vote choices are never colour-only: *for* is a solid wash, *against* is diagonal
 2. **The settling tally.** The tally strip is split into for / against / abstain segments, with a quorum tick; when a vote lands, segments ease to their new widths and, when quorum is crossed, the tick flips to "Quorum reached".
 3. **Filed.** Certification prints a registry line (reference, date, result) into the proposal's timeline like a stamped ledger entry.
 
-**What we deliberately avoid, and why.** Blue/purple "AI" gradients, frosted glass and neon (they read as speculative crypto and would erode a clerk's trust); glowing coins and 3D blobs (nothing in LandVote is a token); map-app blue pins and satellite tiles (generic, and they hide lot boundaries); default shadcn look (rounded cards with soft shadows); red/green-only vote colours (colour-blind unsafe); Monark orange (independent brand).
+**What we deliberately avoid, and why.** Blue/purple "AI" gradients (LandVote's blue is one flat ink colour, never a gradient), frosted glass and neon (they read as speculative crypto and would erode a clerk's trust); glowing coins and 3D blobs (nothing in LandVote is a token); map-app blue pins and satellite tiles (generic, and they hide lot boundaries); default shadcn look (rounded cards with soft shadows); red/green-only vote colours (colour-blind unsafe); Monark orange (independent brand).
 
 ## 9. Assets
 

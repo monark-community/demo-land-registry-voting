@@ -26,37 +26,37 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
 
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", background: "#F3F1EA", color: "#17201C", padding: 64 }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", background: "#EEF0EB", color: "#151B24", padding: 64 }}>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: 560 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <svg width="56" height="56" viewBox="0 0 32 32">
-              <rect x="2.5" y="2.5" width="27" height="27" rx="1.5" fill="#FBFAF6" stroke="#17201C" strokeWidth="2" />
-              <path d="M2.5 29.5 L2.5 2.5 L19 2.5 L11 29.5 Z" fill="#1D5C45" />
-              <path d="M19 2.5 L11 29.5" stroke="#17201C" strokeWidth="2" />
-              <circle cx="15" cy="16" r="5" fill="#FBFAF6" stroke="#17201C" strokeWidth="1.8" />
+              <rect x="2.5" y="2.5" width="27" height="27" rx="1.5" fill="#FAFAF7" stroke="#151B24" strokeWidth="2" />
+              <path d="M2.5 29.5 L2.5 2.5 L19 2.5 L11 29.5 Z" fill="#1B4272" />
+              <path d="M19 2.5 L11 29.5" stroke="#151B24" strokeWidth="2" />
+              <circle cx="15" cy="16" r="5" fill="#FAFAF7" stroke="#151B24" strokeWidth="1.8" />
             </svg>
             <span style={{ fontSize: 46, fontWeight: 800, letterSpacing: -1 }}>LandVote</span>
           </div>
           <div style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.06, letterSpacing: -2 }}>{d.meta.ogTagline}</div>
-          <div style={{ fontSize: 22, color: "#565D56", letterSpacing: 2 }}>{d.common.demoBadge.toUpperCase()}</div>
+          <div style={{ fontSize: 22, color: "#4F5761", letterSpacing: 2 }}>{d.common.demoBadge.toUpperCase()}</div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", marginLeft: 40, padding: 12, border: "3px solid #17201C", background: "#FBFAF6", boxShadow: "6px 6px 0 rgba(23,32,28,0.15)", alignSelf: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", marginLeft: 40, padding: 12, border: "3px solid #151B24", background: "#FAFAF7", boxShadow: "6px 6px 0 rgba(21,27,36,0.15)", alignSelf: "center" }}>
           <svg width="460" height="282" viewBox="40 50 400 245">
             <defs>
               <pattern id="ag" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                 <line x1="0" y1="0" x2="0" y2="6" stroke="#B5432A" strokeWidth="2.2" />
               </pattern>
               <pattern id="ab" width="5" height="5" patternUnits="userSpaceOnUse">
-                <circle cx="2.5" cy="2.5" r="1.1" fill="#7E7A6D" />
+                <circle cx="2.5" cy="2.5" r="1.1" fill="#7A7870" />
               </pattern>
             </defs>
             {lots.map((l) => {
               const c = CHOICES[l.id]
-              const fill = c === "for" ? "#1D5C45" : c === "against" ? "url(#ag)" : c === "abstain" ? "url(#ab)" : "#FBFAF6"
-              return <path key={l.id} d={lotPath(l)} fill={l.id === "4512087" ? "#F1E3A6" : fill} fillOpacity={c === "for" && l.id !== "4512087" ? 0.7 : 1} stroke="#3B4540" strokeWidth="1" />
+              const fill = c === "for" ? "#1B4272" : c === "against" ? "url(#ag)" : c === "abstain" ? "url(#ab)" : "#FAFAF7"
+              return <path key={l.id} d={lotPath(l)} fill={l.id === "4512087" ? "#F1E3A6" : fill} fillOpacity={c === "for" && l.id !== "4512087" ? 0.7 : 1} stroke="#3A4250" strokeWidth="1" />
             })}
-            <circle cx={mine.centroid[0]} cy={mine.centroid[1]} r="12" fill="#FBFAF6" stroke="#17201C" strokeWidth="2" />
-            <path d={`M${mine.centroid[0] - 5} ${mine.centroid[1]} l4 4 l7 -8`} fill="none" stroke="#1D5C45" strokeWidth="2.6" strokeLinecap="round" />
+            <circle cx={mine.centroid[0]} cy={mine.centroid[1]} r="12" fill="#FAFAF7" stroke="#151B24" strokeWidth="2" />
+            <path d={`M${mine.centroid[0] - 5} ${mine.centroid[1]} l4 4 l7 -8`} fill="none" stroke="#1B4272" strokeWidth="2.6" strokeLinecap="round" />
           </svg>
         </div>
       </div>

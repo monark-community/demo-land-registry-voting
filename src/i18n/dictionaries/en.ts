@@ -568,7 +568,7 @@ const en = {
       sendReturn: "Send back",
       certify: "Certify result",
       retryFiling: "Retry filing",
-      closeNow: "Close voting now",
+      closeNow: "Close voting now (demo)",
       closeNowHint: "Demo shortcut: ends the voting period early.",
       empty: "Your desk is clear. Nothing waits for review or certification.",
       emptyOpen: "No vote is open.",

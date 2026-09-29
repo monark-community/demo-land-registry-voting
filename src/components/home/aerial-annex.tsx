@@ -23,17 +23,17 @@ export function AerialAnnex({ alt, caption }: { alt: string; caption: string }) 
         <svg viewBox="0 0 1800 1011" className="absolute inset-0 h-full w-full" aria-hidden="true">
           {LOT_LINES.map((d, i) => (
             <g key={d}>
-              <path d={d} fill={i === 0 ? "#f1e3a6" : "none"} fillOpacity={i === 0 ? 0.45 : 0} stroke="#17201c" strokeWidth="9" strokeLinejoin="round" opacity="0.55" />
-              <path d={d} fill="none" stroke={i === 0 ? "#f1e3a6" : "#fbfaf6"} strokeWidth="4.5" strokeDasharray={i === 0 ? undefined : "18 12"} strokeLinejoin="round" />
+              <path d={d} fill={i === 0 ? "#f1e3a6" : "none"} fillOpacity={i === 0 ? 0.45 : 0} stroke="#151b24" strokeWidth="9" strokeLinejoin="round" opacity="0.55" />
+              <path d={d} fill="none" stroke={i === 0 ? "#f1e3a6" : "#fafaf7"} strokeWidth="4.5" strokeDasharray={i === 0 ? undefined : "18 12"} strokeLinejoin="round" />
             </g>
           ))}
           <g transform="translate(1168 560) rotate(-4)">
-            <circle r="44" fill="#fbfaf6" stroke="#17201c" strokeWidth="6" />
-            <circle r="34" fill="none" stroke="#17201c" strokeWidth="2.5" strokeDasharray="5 4" />
-            <path d="M-16 1 l12 12 l22 -26" fill="none" stroke="#1d5c45" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+            <circle r="44" fill="#fafaf7" stroke="#151b24" strokeWidth="6" />
+            <circle r="34" fill="none" stroke="#151b24" strokeWidth="2.5" strokeDasharray="5 4" />
+            <path d="M-16 1 l12 12 l22 -26" fill="none" stroke="#1b4272" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
           </g>
-          <g fontFamily="var(--font-mono)" fontSize="30" fontWeight="600" fill="#17201c">
-            <rect x="1060" y="632" width="190" height="44" fill="#fbfaf6" opacity="0.92" />
+          <g fontFamily="var(--font-mono)" fontSize="30" fontWeight="600" fill="#151b24">
+            <rect x="1060" y="632" width="190" height="44" fill="#fafaf7" opacity="0.92" />
             <text x="1074" y="664">4 512 087</text>
           </g>
         </svg>

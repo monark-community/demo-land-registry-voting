@@ -62,7 +62,7 @@ export function PlanDefs({ p }: { p: string }) {
         <path d="M0 5 q4 -3 8 0 t8 0" fill="none" stroke="var(--chart-5)" strokeWidth="0.9" opacity="0.7" />
       </pattern>
       <pattern id={`${p}-bank`} width="7" height="7" patternUnits="userSpaceOnUse">
-        <circle cx="2" cy="2" r="0.9" fill="var(--chart-1)" opacity="0.55" />
+        <circle cx="2" cy="2" r="0.9" fill="var(--success)" opacity="0.6" />
       </pattern>
       <pattern id={`${p}-square`} width="8" height="8" patternUnits="userSpaceOnUse">
         <circle cx="4" cy="4" r="0.8" fill="var(--lot-line)" opacity="0.45" />
