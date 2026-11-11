@@ -10,7 +10,7 @@ This repository is the interactive demo: the fictional town of **Belrive**, its 
 
 ## Run it locally
 
-Requirements: Node.js 22 and pnpm 10.
+Requirements: Node.js 22.23.4 or newer on the 22 line and pnpm 10.
 
 ```bash
 pnpm install
@@ -85,4 +85,4 @@ Stack: Next.js 16 (App Router, TypeScript strict), Tailwind CSS 4, shadcn/ui on 
 
 ## Deploy to Vercel
 
-Import the repository in Vercel and deploy with the framework defaults: no `vercel.json`, no environment variables. The Node version is pinned in `package.json` (`engines.node: 22.x`) and `pnpm-lock.yaml` is committed. Every page prerenders; proposals drafted in the browser render on demand.
+Import the repository in Vercel and deploy with the framework defaults: no `vercel.json`, no environment variables. The Node version is pinned in `package.json` (`engines.node: 22.x`) and `pnpm-lock.yaml` is committed. `pnpm build` and `pnpm start` stop on a Node.js release exposed to CVE-2026-111497. Every page prerenders; proposals drafted in the browser render on demand.

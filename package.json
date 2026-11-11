@@ -5,7 +5,9 @@
   "description": "LandVote: land-use votes for towns and neighbourhoods, tied to registered lots (simulated demo).",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-node.mjs",
     "build": "next build",
+    "prestart": "node scripts/check-node.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
